@@ -177,6 +177,16 @@
         event.preventDefault();
       }
     });
+<<<<<<< HEAD
+=======
+
+      document.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+  }
+});
+
+>>>>>>> 6b24876aabca022344b4c655db87bc3ebd9d1758
   </script>
 </body>
 </html>
