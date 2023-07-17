@@ -4,4 +4,4 @@ Halaman web ini adalah sebuah aplikasi berbasis web yang memungkinkan pengguna m
 
 ## Build
 
-Build with PHP,Bootstrap4,js,Html.
+Build with Bootstrap4,js,html.
