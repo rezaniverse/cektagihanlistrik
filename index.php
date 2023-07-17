@@ -171,20 +171,12 @@
       var whatsappURL = "https://wa.me/?text=" + encodedText;
       window.open(whatsappURL);
     }
-<<<<<<< HEAD
     
     document.addEventListener("keydown", function(event) {
       if (event.key === "Enter") {
         event.preventDefault();
       }
     });
-=======
-      document.addEventListener("keydown", function(event) {
-  if (event.key === "Enter") {
-    event.preventDefault();
-  }
-});
->>>>>>> c102b4741eed6b4620a1807a56877c22c57575c0
   </script>
 </body>
 </html>
