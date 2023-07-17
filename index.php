@@ -57,7 +57,7 @@
         <label for="idpel">ID Pelanggan</label>
         <input type="text" class="form-control" id="idpel" placeholder="Masukkan ID Pelanggan">
       </div>
-      <button type="button" class="btn btn-primary" onclick="cekTagihan()">Cek Tagihan</button>
+      <button type="button" id="cekTagihanButton" class="btn btn-primary" onclick="cekTagihan()">Cek Tagihan</button>
     </form>
   </div>
   <div id="ResultTagihan" class="container col-sm-6 mt-2 mb-2"></div>
@@ -78,16 +78,20 @@
 
     function cekTagihan() {
       var idPelanggan = document.getElementById("idpel").value;
-
       if (idPelanggan === "") {
         alert("ID Pelanggan tidak boleh kosong");
         return;
       }
 
+      var cekTagihanButton = document.getElementById("cekTagihanButton");
+      cekTagihanButton.innerHTML = "Loading...";
+      cekTagihanButton.disabled = true;
+
       var apiUrl = "https://api.rzptra.my.id/api/api_taglistrik.php?apikey=" + apikey + "&idpel=" + idPelanggan;
+      var proxyUrl = "proxy.php?url=" + encodeURIComponent(apiUrl);
 
       var xhr = new XMLHttpRequest();
-      xhr.open("GET", "https://cors-anywhere.herokuapp.com/" + apiUrl, true);
+      xhr.open("GET", proxyUrl, true);
       xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
           if (xhr.status === 200) {
@@ -123,7 +127,6 @@
               `;
               resultContainer.innerHTML = tableHtml;
 
-              // Tampilkan tombol WhatsApp
               var whatsappButton = document.createElement("button");
               whatsappButton.setAttribute("type", "button");
               whatsappButton.setAttribute("class", "btn btn-primary");
@@ -133,9 +136,15 @@
             } else {
               resultContainer.innerHTML = response.data.title;
             }
+
+            cekTagihanButton.innerHTML = "Cek Tagihan";
+            cekTagihanButton.disabled = false;
           } else {
             var resultContainer = document.getElementById("ResultTagihan");
-            resultContainer.innerHTML = response.data.message;
+            resultContainer.innerHTML = "Terjadi kesalahan saat mengambil data.";
+
+            cekTagihanButton.innerHTML = "Cek Tagihan";
+            cekTagihanButton.disabled = false;
           }
         }
       };
@@ -162,6 +171,12 @@
       var whatsappURL = "https://wa.me/?text=" + encodedText;
       window.open(whatsappURL);
     }
+    
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+      }
+    });
   </script>
 </body>
 </html>
