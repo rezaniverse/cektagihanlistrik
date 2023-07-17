@@ -2,6 +2,6 @@
 
 Halaman web ini adalah sebuah aplikasi berbasis web yang memungkinkan pengguna memeriksa tagihan listrik dengan mengisi ID Pelanggan. Informasi tagihan akan ditampilkan secara langsung di halaman web.
 
-## Lisensi
+## Build
 
-Diberikan tanpa lisensi. Silakan gunakan dengan bijak.
+Build with PHP,Bootstrap4,js,Html.
