@@ -87,7 +87,7 @@
       cekTagihanButton.innerHTML = "Loading...";
       cekTagihanButton.disabled = true;
 
-      var apiUrl = "https://api.rzptra.my.id/api/api_taglistrik.php?apikey=" + apikey + "&idpel=" + idPelanggan;
+      var apiUrl = "https://riizeis.me/api/api_taglistrik.php?apikey=" + apikey + "&idpel=" + idPelanggan;
       var proxyUrl = "proxy.php?url=" + encodeURIComponent(apiUrl);
 
       var xhr = new XMLHttpRequest();
